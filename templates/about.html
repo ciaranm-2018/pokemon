@@ -1,18 +1,12 @@
 {% extends 'base.html' %} {% block content %}
-
-
 <h2>{{ page_title }}</h2>
 
-<p>After he turns 10 years old, Ash Ketchum (Satoshi in Japan), is allowed to start his journey in the world of Pokémon and dreams of becoming a Pokémon master. On the day he is to receive his first Pokémon, 
-Ash wakes in a panic, having overslept. Professor Oak, the local Pokémon researcher, has already given away the three Pokémon (Bulbasaur, Charmander, and Squirtle) he entrusts to new Pokémon Trainers when Ash finally reaches Oak's Lab. The only Pokémon that he has left is a Pikachu, that he gives to Ash. Determined to make it on his journey, Ash does his best to befriend Pikachu, but it does not trust him and will not even return to its PokéBall, even attacking Ash with its unique electric powers. It is only after Ash protects Pikachu from a group of angry Spearow that Pikachu realizes how much Ash cares, leading it to save Ash. Afterwards, they both see a mysterious and unidentifiable Pokémon that spurs both of them to work towards Ash's goal.</p>
+<p>The formation of the group grew out of a meeting Gandalf had with Thorin in Bree which kindled Thorin's interest in recapturing his long lost family inheritance. Remembering that he had once known an adventurous Hobbit on his travels in The Shire, Gandalf
+    decided to add Bilbo to their company because he knew that stealth and cunning were preferable to force. Gandalf also believed that someone like Bilbo could keep the sometimes prideful and stubborn Dwarves from rash action. The superstitious Dwarves
+    also considered thirteen to be an unlucky number, and as Gandalf had planned to leave on other business, welcomed a fourteenth to fill in to their party.</p>
 
-
-
-
-{% for member in company_data %}
-
+{% for member in company %} {% if loop.index % 2 != 0 %}
 <div class="row featurette">
-    {% if loop.index % 2 != 0 %}
     <div class="col-md-7">
         <h3>{{ loop.index }}. {{ member.name }}</h3>
         <p>{{ member.description }}</p>
@@ -20,18 +14,16 @@ Ash wakes in a panic, having overslept. Professor Oak, the local Pokémon resear
     <div class="col-md-5">
         <img class="featurette-image img-responsive" src="{{ member.image_source }}" alt="Picture of {{ member.name }}">
     </div>
-    {% else %}
-    <div class="col-md-5">
-        <img class="featurette-image img-responsive" src="{{ member.image_source }}" alt="Picture of {{ member.name }}">
-    </div>
-    <div class="col-md-7">
-        <h3>{{ loop.index }}. {{ member.name }}</h3>
-        <p>{{ member.description }}</p>
-    </div>
-    {% endif %}
 </div>
-{% if loop.index != 7 %}
-<hr class="featurette-divider">
-{% endif %}
-{% endfor %}
-{% endblock %}
+{% else %}
+<div class="row featurette">
+    <div class="col-md-5">
+        <img class="featurette-image img-responsive" src="{{ member.image_source }}" alt="Picture of {{ member.name }}">
+    </div>
+    <div class="col-md-7">
+        <h3>{{ loop.index }}. {{ member.name }}</h3>
+        <p>{{ member.description }}</p>
+    </div>
+</div>
+{% endif %} {{ if loop.index != 13 }}
+<hr class="featurette-divider"> {% endif %} {% endfor %} {% endblock %}
